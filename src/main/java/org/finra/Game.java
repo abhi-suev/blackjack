@@ -60,7 +60,7 @@ public class Game {
         for (int i = 0; i < numberOfPlayers; i++) {
             final Player player = players[i];
             player.addCard(deck.drawCard());
-            System.out.printf("Dealing to %s, cards: %s. Hit or Stand? >", player.getName(), player.getHand());
+            System.out.printf("Dealing to %s, cards: %s. Hit or Stand? > ", player.getName(), player.getHand());
             String choice = scanner.nextLine().trim();
             while (!choice.equalsIgnoreCase("Stand")) {
                 if (!choice.equalsIgnoreCase("Hit")) {
