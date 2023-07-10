@@ -6,21 +6,21 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public enum Rank {
 
-    Ace(1),
-    Two (2),
-    Three (3),
-    Four (4),
-    Five (5),
-    Six (6),
-    Seven (7),
-    Eight (8),
-    Nine (9),
-    Ten (10),
-    Jack (10),
-    Queen (10),
-    King (10);
+    Ace((byte) 1),
+    Two((byte) 2),
+    Three((byte) 3),
+    Four((byte) 4),
+    Five((byte) 5),
+    Six((byte) 6),
+    Seven((byte) 7),
+    Eight((byte) 8),
+    Nine((byte) 9),
+    Ten((byte) 10),
+    Jack((byte) 10),
+    Queen((byte) 10),
+    King((byte) 10);
 
     @Getter
-    private final int val;
+    private final byte val;
 
 }
