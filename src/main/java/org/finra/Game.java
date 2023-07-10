@@ -9,7 +9,7 @@ public class Game {
      *
      * @param numberOfPlayers
      */
-    public void init(final int numberOfPlayers) {
+    public void init(final byte numberOfPlayers) {
         System.out.printf("Starting game with %d players.%n", numberOfPlayers);
         final Deck deck = new Deck();
         System.out.println("Shuffling.");
@@ -27,11 +27,11 @@ public class Game {
      * @param deck
      * @return players array (includes dealer)
      */
-    private Player[] setupPlayersAndDealFirstCard(final int numberOfPlayers, final Deck deck) {
+    private Player[] setupPlayersAndDealFirstCard(final byte numberOfPlayers, final Deck deck) {
         final Player[] players = new Player[numberOfPlayers + 1];
 
         // deal first card to each player
-        for (int i = 0; i < numberOfPlayers; i++) {
+        for (byte i = 0; i < numberOfPlayers; i++) {
             final Player player = new Player("player " + (i + 1));
             player.addCard(deck.drawCard());
             players[i] = player;
@@ -54,10 +54,10 @@ public class Game {
      * @param deck
      */
     private void playTurns(final Player[] players, final Deck deck) {
-        final int numberOfPlayers = players.length - 1; //exclude dealer
+        final byte numberOfPlayers = (byte) (players.length - 1); //exclude dealer
         // player turns only
         final Scanner scanner = new Scanner(System.in);
-        for (int i = 0; i < numberOfPlayers; i++) {
+        for (byte i = 0; i < numberOfPlayers; i++) {
             final Player player = players[i];
             player.addCard(deck.drawCard());
             System.out.printf("Dealing to %s, cards: %s. Hit or Stand? > ", player.getName(), player.getHand());
@@ -107,9 +107,9 @@ public class Game {
      * @param players
      */
     private void determineWinners(final Player[] players) {
-        final int numberOfPlayers = players.length - 1; //exclude dealer
+        final byte numberOfPlayers = (byte) (players.length - 1); //exclude dealer
         final Player dealer = players[numberOfPlayers]; //last position
-        for (int i = 0; i < numberOfPlayers; i++) {
+        for (byte i = 0; i < numberOfPlayers; i++) {
             final Player player = players[i];
             if (player.getScore() > 21) {
                 System.out.printf("Scoring %s busted. Dealer wins.%n", player.getName());
