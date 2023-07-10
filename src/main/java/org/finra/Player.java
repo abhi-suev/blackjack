@@ -19,7 +19,7 @@ public class Player {
         hand.addCard(card);
     }
 
-    public int getScore() {
+    public byte getScore() {
         return hand.getScore();
     }
 
