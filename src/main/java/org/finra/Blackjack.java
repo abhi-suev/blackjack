@@ -7,9 +7,9 @@ public class Blackjack {
         if (args.length == 0) {
             throw new IllegalArgumentException("Missing number of players argument, should be 1-3");
         }
-        final int numberOfPlayers;
+        final byte numberOfPlayers;
         try {
-            numberOfPlayers = Integer.parseInt(args[0]);
+            numberOfPlayers = Byte.parseByte(args[0]);
         } catch (final NumberFormatException nfe) {
             throw new IllegalArgumentException("Invalid number of players argument, should be 1-3");
         }
