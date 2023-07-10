@@ -16,8 +16,8 @@ public class Hand {
         cards.add(card);
     }
 
-    public int getScore() {
-        int score = 0;
+    public byte getScore() {
+        byte score = 0;
         boolean hasAce = false;
         for (final Card card : cards) {
             score += card.getRank().getVal();
@@ -34,14 +34,14 @@ public class Hand {
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder();
-        final int size = cards.size();
-        for (int i = 0; i < cards.size(); i++) {
+        final byte size = (byte) cards.size();
+        for (byte i = 0; i < size; i++) {
             final Card card = cards.get(i);
             final Rank rank = card.getRank();
-            final boolean nan = rank.equals(Rank.Ace) ||
-                    rank.equals(Rank.King) ||
-                    rank.equals(Rank.Queen) ||
-                    rank.equals(Rank.Jack);
+            final boolean nan = Rank.Ace.equals(rank) ||
+                    Rank.King.equals(rank) ||
+                    Rank.Queen.equals(rank) ||
+                    Rank.Jack.equals(rank); //not a number
             sb.append(nan ? card.getRank().toString() : card.getRank().getVal()).append(" ").append(card.getSuit());
             if (i != size - 1) {
                 sb.append(", ");
